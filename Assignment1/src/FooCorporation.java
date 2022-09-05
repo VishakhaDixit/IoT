@@ -1,4 +1,6 @@
 import java.io.File;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class fooCorporation {
@@ -13,7 +15,8 @@ public class fooCorporation {
             File file = new File("EmployeeDetails.txt");
             Scanner sc = new Scanner(file);
             int i = 1;
-            empLinkedList empList = new empLinkedList();
+            empLinkedList empList1 = new empLinkedList();               // (a)
+            LinkedList<Double> empList2 = new LinkedList<Double>();     // (b)
 
             while (sc.hasNextLine())
             {
@@ -29,13 +32,22 @@ public class fooCorporation {
 
                 if(empSalary != 0)
                 {
-                    empList.insert(empSalary);
+                    empList1.insert(empSalary);                         // (a)
+                    empList2.add(empSalary);                            // (b)
                 }
 
                 i++;
             }
-            System.out.println("ORDERED EMPLOYEE SALARY LIST:");
-            empList.viewList();
+            System.out.println("\n" + "(a) Sorted List using empLinkedList class:");        // (a)
+            empList1.viewList();                                     
+
+            Collections.sort(empList2);
+            System.out.println("\n" + "(b) Sorted List using in built LinkedList<Double>:"); // (b)
+            for(Double num : empList2){
+                System.out.println(num);
+            }
+
+
             sc.close();
         } 
         catch(Exception e)
