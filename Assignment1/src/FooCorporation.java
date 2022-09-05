@@ -1,9 +1,38 @@
+import java.io.File;
+import java.util.Scanner;
+
 public class FooCorporation {
 
-    double minWage = 8.00;
-    int maxHours = 60;
+    static double minWage = 8.00;
+    static int maxHours = 60;
 
-    public void getTotalPay(double basePay, int hoursWorked)
+    public static void main(String[] args)
+    {
+        try 
+        {
+            File file = new File("EmployeeDetails.txt");
+            Scanner sc = new Scanner(file);
+
+            while (sc.hasNextLine())
+            {
+                String data = sc.nextLine();
+                String[] tokens = data.split(",");
+
+                Double basePay = Double.parseDouble(tokens[0]);
+                int hrs = Integer.parseInt(tokens[1]);
+
+                getTotalPay(basePay, hrs);
+
+            }
+            sc.close();
+        } 
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void getTotalPay(double basePay, int hoursWorked)
     {
         double total_salary = 0;
 
@@ -21,11 +50,7 @@ public class FooCorporation {
             {
                 total_salary = basePay * hoursWorked;
             }
-            System.out.println("Total salary is" + total_salary);
+            System.out.println("Total salary is" + " " + total_salary);
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
     }
 }
