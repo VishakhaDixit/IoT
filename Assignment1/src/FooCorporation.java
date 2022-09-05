@@ -27,7 +27,7 @@ public class fooCorporation {
                 Double basePay = Double.parseDouble(tokens[0]);
                 Double hrs = Double.parseDouble(tokens[1]);
 
-                System.out.println("Employee"+ i + ":");
+                System.out.println("Employee "+ i + ":");
                 empSalary = getTotalPay(basePay, hrs);
 
                 if(empSalary != 0)

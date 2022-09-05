@@ -205,7 +205,7 @@ public class empLinkedList {
             curNode = start;
             for(int i = 1; i <= size; i++)
             {
-                System.out.println("Employee" + i + ":" + curNode.getData());
+                System.out.println(curNode.getData());
                 curNode = curNode.getNext();
             }
         }
