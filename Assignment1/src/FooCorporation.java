@@ -27,7 +27,7 @@ public class fooCorporation {
                 Double basePay = Double.parseDouble(tokens[0]);
                 Double hrs = Double.parseDouble(tokens[1]);
 
-                System.out.println("Employee "+ i + ":");
+                System.out.println("\nEmployee"+ i + ": " + "BasePay = " + basePay + ", " + "HoursWorked = " + hrs);
                 empSalary = getTotalPay(basePay, hrs);
 
                 if(empSalary != 0)
@@ -60,9 +60,13 @@ public class fooCorporation {
     {
         Double total_salary = 0.00;
 
-        if((basePay < minWage) || (hoursWorked > maxHours))
+        if(basePay < minWage)
         {
-            System.out.println("ERROR: Invalid Base Pay or Hours Worked!!");
+            System.out.println("ERROR: Invalid Base Pay!!");
+        }
+        else if(hoursWorked > maxHours)
+        {
+            System.out.println("ERROR: Invalid Hours Worked!!");
         }
         else
         {
