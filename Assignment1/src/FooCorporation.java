@@ -1,3 +1,15 @@
+/**************************
+ *
+ * @file    FooCorporation.java
+ *
+ * @brief   This program reads the employee details from a file, calculates total wage of each employee & maintains an ordered linked list.
+ *
+ * @date    Sep 10, 2022
+ *
+ * @author  Vishakha Dixit
+ *
+ **************************/
+
 import java.io.File;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -5,7 +17,7 @@ import java.util.Scanner;
 
 public class fooCorporation {
 
-    static double minWage = 8.00;
+    static double minWage = 8.00;   
     static int maxHours = 60;
 
     public static void main(String[] args)
@@ -15,7 +27,7 @@ public class fooCorporation {
             File file = new File("EmployeeDetails.txt");
             Scanner sc = new Scanner(file);
             int i = 1;
-            empLinkedList empList1 = new empLinkedList();               // (a)
+            empLinkedList empList1 = new empLinkedList();               // (a) 
             LinkedList<Double> empList2 = new LinkedList<Double>();     // (b)
 
             while (sc.hasNextLine())
@@ -56,6 +68,14 @@ public class fooCorporation {
         }
     }
 
+    /**************************
+     * @brief       This function calculates total pay of an employee.
+     *
+     * @param [in]  double basePay
+     *              Double hoursWorked
+     *
+     * @return      double: Total salary
+     **************************/
     public static double getTotalPay(double basePay, Double hoursWorked)
     {
         Double total_salary = 0.00;

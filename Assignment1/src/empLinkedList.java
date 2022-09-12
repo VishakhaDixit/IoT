@@ -1,3 +1,15 @@
+/**************************
+ *
+ * @file    empLinkedList.java
+ *
+ * @brief   This file contains empLinkedList class which implements a Linked List of employee salary.
+ *
+ * @date    Sep 10, 2022
+ *
+ * @author  Vishakha Dixit
+ *
+ **************************/
+
 public class empLinkedList {
     private int size;
     private empNode start;
@@ -181,7 +193,7 @@ public class empLinkedList {
         }
     }
 
-    public boolean isEmpty() 
+    private boolean isEmpty() 
     {
         if(start == null)
             return(true);
