@@ -39,7 +39,7 @@ public class initDB {
                             {
                                 for(String cm : consMaterial)
                                 {
-                                    String sql = "INSERT INTO `bicycles`.`attributes` (`Type`, `Number of Gears`, `Wheel Base`, `Height`, `Color`, `Construction Material`)" + "VALUES('"+t+"', "+g+", "+wb+", "+h+", '"+clr+"', '"+cm+"')";
+                                    String sql = "INSERT INTO `bicycles`.`attributes` (`Type`, `Number_of_gears`, `Wheel_base`, `Height`, `Color`, `Construction_material`)" + "VALUES('"+t+"', "+g+", "+wb+", "+h+", '"+clr+"', '"+cm+"')";
                                     stmt.executeUpdate(sql);
                                 }
                             }
