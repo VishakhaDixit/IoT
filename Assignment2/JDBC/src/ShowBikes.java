@@ -1,10 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 public class ShowBikes {
     public static void main(String[] args) throws Exception{
@@ -33,19 +30,19 @@ public class ShowBikes {
                 else
                     lastEle = val;      
             }
-        }
 
-        System.out.println(clause);
-        String sql = "SELECT * FROM bicycles.attributes WHERE " + clause + " ORDER BY " + lastEle + " ASC";
+            System.out.println(clause);
+            String sql = "SELECT * FROM bicycles.attributes WHERE " + clause + " ORDER BY " + lastEle + " ASC";
 
-        PreparedStatement stmt = con.prepareStatement(sql); 
-        ResultSet rs = stmt.executeQuery();
-        while(rs.next())
-        {
-            System.out.print("Type= " + rs.getString("Type") + ", Number of Gears= " + rs.getString("Number_of_gears") 
-                            + ", Wheel Base= " + rs.getString("Wheel_base") + ", Height= " + rs.getString("Height") + 
-                            ", Color= " + rs.getString("Color") + ", Construction Material= " + rs.getString("Construction_material"));
-            System.out.println("\n");
+            PreparedStatement stmt = con.prepareStatement(sql); 
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next())
+            {
+                System.out.print("Type= " + rs.getString("Type") + ", Number of Gears= " + rs.getString("Number_of_gears") 
+                                + ", Wheel Base= " + rs.getString("Wheel_base") + ", Height= " + rs.getString("Height") + 
+                                ", Color= " + rs.getString("Color") + ", Construction Material= " + rs.getString("Construction_material"));
+                System.out.println("\n");
+            }
         }   
     }
 
