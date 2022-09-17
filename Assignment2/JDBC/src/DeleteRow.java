@@ -18,11 +18,17 @@ public class DeleteRow {
                     String[] arrOfStr = val.split("-", 2);
                     if(clause == "")
                     {
-                        clause += arrOfStr[0] + "=" + arrOfStr[1];
+                        if(arrOfStr[0].equals("Type") || arrOfStr[0].equals("Color") || arrOfStr[0].equals("Construction_material"))
+                            clause += arrOfStr[0] + "=" + "'" + arrOfStr[1] + "'";
+                        else
+                            clause += arrOfStr[0] + "=" + arrOfStr[1];
                     }
                     else
                     {
-                        clause += " AND " + arrOfStr[0] + "=" + arrOfStr[1];
+                        if(arrOfStr[0].equals("Type") || arrOfStr[0].equals("Color") || arrOfStr[0].equals("Construction_material"))
+                            clause += " AND " + arrOfStr[0] + "=" + "'" + arrOfStr[1] + "'";
+                        else
+                            clause += " AND " + arrOfStr[0] + "=" + arrOfStr[1];
                     }
                 }
 

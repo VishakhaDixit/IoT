@@ -16,8 +16,6 @@ public class TestMyBicycles {
                     SearchTable st = new SearchTable();
                     ArrayList<String> cols = new ArrayList<String>();
                     ArrayList<String> tableList = new ArrayList<String>();
-
-                    System.out.println("Was able to come here");
                     
                     for(int i = 1; i < args.length; i++)
                     {
@@ -33,8 +31,6 @@ public class TestMyBicycles {
                     DeleteRow dr = new DeleteRow();
                     ArrayList<String> cols = new ArrayList<String>();
                     Boolean result = false;
-
-                    System.out.println("Was able to come here");
                     
                     for(int i = 1; i < args.length; i++)
                     {
@@ -46,6 +42,23 @@ public class TestMyBicycles {
                         System.out.println("Entry Deleted from the Table Attributes!!");
                     else
                         System.out.println("No Entries Deleted from the Table Attributes!!");
+                }
+                else if(args[0].equals("InsertRow"))
+                {
+                    InsertRow ir = new InsertRow();
+                    ArrayList<String> cols = new ArrayList<String>();
+                    Boolean result = false;
+                    
+                    for(int i = 1; i < args.length; i++)
+                    {
+                        cols.add(args[i]);
+                    }
+                    result = ir.insert(con, cols);
+
+                    if(result)
+                        System.out.println("Entry Inserted into the Table Attributes!!");
+                    else
+                        System.out.println("No Entries Inserted into the Table Attributes!!");
                 }
             }
         } 
