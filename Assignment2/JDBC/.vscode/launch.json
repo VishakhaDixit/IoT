@@ -21,7 +21,7 @@
             "type": "java",
             "name": "Launch TestMyBicycles",
             "request": "launch",
-            "args": "SearchTable Type Height",
+            "args": "DeleteRow Height-3",
             "mainClass": "TestMyBicycles",
             "projectName": "JDBC_d0d7272d"
         },

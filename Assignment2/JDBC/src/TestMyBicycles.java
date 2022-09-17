@@ -8,12 +8,12 @@ public class TestMyBicycles {
         try 
         {
             Connection con = conn();
-            SearchTable st = new SearchTable();
 
             if(args.length > 0)
             {
                 if(args[0].equals("SearchTable"))
                 {   
+                    SearchTable st = new SearchTable();
                     ArrayList<String> cols = new ArrayList<String>();
                     ArrayList<String> tableList = new ArrayList<String>();
 
@@ -27,6 +27,25 @@ public class TestMyBicycles {
 
                     for(int i = 0; i < tableList.size(); i++)
                         System.out.println(tableList.get(i));
+                }
+                else if(args[0].equals("DeleteRow"))
+                {
+                    DeleteRow dr = new DeleteRow();
+                    ArrayList<String> cols = new ArrayList<String>();
+                    Boolean result = false;
+
+                    System.out.println("Was able to come here");
+                    
+                    for(int i = 1; i < args.length; i++)
+                    {
+                        cols.add(args[i]);
+                    }
+                    result = dr.delete(con, cols);
+
+                    if(result)
+                        System.out.println("Entry Deleted from the Table Attributes!!");
+                    else
+                        System.out.println("No Entries Deleted from the Table Attributes!!");
                 }
             }
         } 
