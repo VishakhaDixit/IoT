@@ -10,15 +10,25 @@ public class SearchTable {
         try 
         {
             String cols = "";
-            for(String val : columns)
+            String sql = "";
+
+            if(columns.size() != 0)
             {
-                if(cols == "")
-                    cols += "'" + val + "'";
-                else
-                    cols += "," + "'" + val + "'";
+                for(String val : columns)
+                {
+                    if(cols == "")
+                        cols += "'" + val + "'";
+                    else
+                        cols += "," + "'" + val + "'";
+                }
+
+                sql = "SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME IN ("+cols+") AND TABLE_SCHEMA='bicycles'";
+            }
+            else 
+            {
+                sql = "SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='bicycles'";
             }
 
-            String sql = "SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME IN (cols) AND TABLE_SCHEMA='bicycles'";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             ArrayList<String> list = new ArrayList<String>();

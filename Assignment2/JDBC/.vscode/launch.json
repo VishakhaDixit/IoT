@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch ShowBikes",
+            "request": "launch",
+            "mainClass": "ShowBikes",
+            "projectName": "JDBC_d0d7272d"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestMyBicycles",
+            "request": "launch",
+            "args": "SearchTable Type Height",
+            "mainClass": "TestMyBicycles",
+            "projectName": "JDBC_d0d7272d"
+        },
+        {
+            "type": "java",
+            "name": "Launch initDB",
+            "request": "launch",
+            "mainClass": "initDB",
+            "projectName": "JDBC_d0d7272d"
+        }
+    ]
+}

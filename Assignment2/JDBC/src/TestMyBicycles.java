@@ -12,14 +12,14 @@ public class TestMyBicycles {
 
             if(args.length > 0)
             {
-                if(args[1] == "SearchTable")
+                if(args[0].equals("SearchTable"))
                 {   
                     ArrayList<String> cols = new ArrayList<String>();
                     ArrayList<String> tableList = new ArrayList<String>();
 
                     System.out.println("Was able to come here");
                     
-                    for(int i = 2; i < args.length; i++)
+                    for(int i = 1; i < args.length; i++)
                     {
                         cols.add(args[i]);
                     }
