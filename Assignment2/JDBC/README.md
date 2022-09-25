@@ -1,6 +1,13 @@
 ## Getting Started
+- Init with =>& 'C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe' '--enable-preview' '-XX:+ShowCodeDetailsInExceptionMessages' '@C:\Users\visha\AppData\Local\Temp\cp_98awcusdxiob5sj86wmo3kyhd.argfile' 'initDB'
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+- ShowBikes => & 'C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe' '--enable-preview' '-XX:+ShowCodeDetailsInExceptionMessages' '@C:\Users\visha\AppData\Local\Temp\cp_98awcusdxiob5sj86wmo3kyhd.argfile' 'ShowBikes' 'Type-mountain_bike' 'Number_of_gears-5' 'Wheel_base'
+
+- SearchTable => & 'C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe' '--enable-preview' '-XX:+ShowCodeDetailsInExceptionMessages' '@C:\Users\visha\AppData\Local\Temp\cp_98awcusdxiob5sj86wmo3kyhd.argfile' 'TestMyBicycles' 'SearchTable' 'Type' 'Number_of_gears' 
+
+- DeleteRow => & 'C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe' '--enable-preview' '-XX:+ShowCodeDetailsInExceptionMessages' '@C:\Users\visha\AppData\Local\Temp\cp_98awcusdxiob5sj86wmo3kyhd.argfile' 'TestMyBicycles' 'DeleteRow' 'Type-mountain_bike' 'Number_of_gears-4' 'Wheel_base-36' 'Height-1' 'Color-steel' 'Construction_material-carbon'
+
+- InsertRow => c:; cd 'c:\Users\visha\OneDrive\Documents\UNCC\Sem3\IoT\IoTAssignments\Assignment2\JDBC'; & 'C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe' '--enable-preview' '-XX:+ShowCodeDetailsInExceptionMessages' '@C:\Users\visha\AppData\Local\Temp\cp_98awcusdxiob5sj86wmo3kyhd.argfile' 'TestMyBicycles' 'InsertRow' 'Type-mountain_bike' 'Number_of_gears-4' 'Wheel_base-36' 'Height-1' 'Color-steel' 'Construction_material-carbon' 
 
 ## Folder Structure
 

@@ -21,7 +21,7 @@
             "type": "java",
             "name": "Launch TestMyBicycles",
             "request": "launch",
-            "args": "DeleteRow Type-mountain_bike Number_of_gears-4 Wheel_base-36 Height-1 Color-steel Construction_material-carbon",
+            "args": "InsertRow Type-mountain_bike Number_of_gears-4 Wheel_base-36 Height-1 Color-steel Construction_material-carbon",
             "mainClass": "TestMyBicycles",
             "projectName": "JDBC_d0d7272d"
         },
