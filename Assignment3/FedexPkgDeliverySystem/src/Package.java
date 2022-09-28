@@ -14,7 +14,7 @@ public class Package {
 	public String trackingNo;           // User has access to this item for tracking purposes
 
     Package(String weight, String dimensions, int pieces, String src, String dest, String signServices, 
-            String packaging, String specialHandling, String service) 
+            String packaging, String specialHandling, String service, String trNum) 
     {
 		this.weight = weight;
 		this.dimensions = dimensions;
@@ -25,6 +25,7 @@ public class Package {
 		this.packaging = packaging;
 		this.specialHandling = specialHandling;
 		this.service = service;
+        this.trackingNo = trNum;
 	}
 
     // Setter & Getter Methods for each Package detail

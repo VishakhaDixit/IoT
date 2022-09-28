@@ -36,7 +36,7 @@ public class FedexDB {
     public static void addPckgDet(Connection conn, Package p) throws SQLException
     {
         String sql = "INSERT INTO `fedex`.`package_details` (`Weight`, `Source`, `Destination`, `SignService`, `Packaging`, `TotalPieces`, `Service`, `TrackingNumber`, `SpecialHandling`)" + 
-        "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";        
         PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, p.getWeight());
 		stmt.setString(2, p.getSrc());
@@ -44,11 +44,10 @@ public class FedexDB {
 		stmt.setString(4, p.getSignServices());
 		stmt.setString(5, p.getPackaging());
 		stmt.setInt(6,    p.getTotalPieces());
-		stmt.setString(7, p.getSpecialHandlingSrvc());
-		stmt.setString(8, p.getService());
-		stmt.setString(9, p.trackingNo);
+		stmt.setString(7, p.getService());
+		stmt.setString(8, p.trackingNo);
+		stmt.setString(9, p.getSpecialHandlingSrvc());
 		stmt.executeUpdate();
-		conn.close();
     }
 
     public static void updateCurrLocation(Connection conn, Package p) throws SQLException
@@ -64,7 +63,5 @@ public class FedexDB {
 		historyStmt.setString(2, p.trackingNo);
 		historyStmt.setString(3, currLocation);
 		historyStmt.executeUpdate();
-
-		conn.close();
     }
 }
