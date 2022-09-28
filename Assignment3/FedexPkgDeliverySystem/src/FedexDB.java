@@ -33,7 +33,7 @@ public class FedexDB {
         stmt1.executeUpdate(sql1);
     }
 
-    public static void addPckg(Connection conn, Package p) throws SQLException
+    public static void addPckgDet(Connection conn, Package p) throws SQLException
     {
         String sql = "INSERT INTO `fedex`.`package_details` (`Weight`, `Source`, `Destination`, `SignService`, `Packaging`, `TotalPieces`, `Service`, `TrackingNumber`, `SpecialHandling`)" + 
         "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -48,6 +48,23 @@ public class FedexDB {
 		stmt.setString(8, p.getService());
 		stmt.setString(9, p.trackingNo);
 		stmt.executeUpdate();
+		conn.close();
+    }
+
+    public static void updateCurrLocation(Connection conn, Package p) throws SQLException
+    {
+        String currLocation = p.getCurrLocation();
+		String sql = "UPDATE `fedex`.`package_details` SET CurrentLocation='"+currLocation+"' WHERE TrackingNumber="+ p.trackingNo;
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.executeUpdate(sql);
+
+		String insert_query = "INSERT INTO `fedex`.`travel_history` (ArrivalTime, TrackingNumber, Location) values (?, ?, ?)";
+		PreparedStatement historyStmt = conn.prepareStatement(insert_query);
+		historyStmt.setLong(1, System.currentTimeMillis());
+		historyStmt.setString(2, p.trackingNo);
+		historyStmt.setString(3, currLocation);
+		historyStmt.executeUpdate();
+
 		conn.close();
     }
 }
