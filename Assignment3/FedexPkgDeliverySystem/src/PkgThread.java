@@ -3,7 +3,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class PkgThread extends Thread
+public class PkgThread extends Thread 
 {
     boolean run = true;
 	public static final String[] locationArr = {"Northborough, MA","Edison, NJ","Pittsburgh, PA","Allentown, PA","Martinsburg, WV",
@@ -34,6 +34,9 @@ public class PkgThread extends Thread
     {
 		while(run) 
         {	
+			TrackResult tr = new TrackResult();
+			tr.init();
+			
 			int src = 0, dest = 0;
             DijkstrasAlgorithm algo = new DijkstrasAlgorithm();
 			
@@ -43,13 +46,16 @@ public class PkgThread extends Thread
 				if(location.equals(p.getSrc())) 
                 {
 					src = i; 
+					tr.updateSrc(location);
 				}
 				if(location.equals(p.getDest())) 
                 {
 					dest = i;
+					tr.updateDest(location);
 				}
 			}
 			path = algo.getShortestPath(src, dest);
+			tr.updateShippingFacts(p);
 			
 			for (int i = 0;i < path.size(); i++) 
             { 
@@ -61,12 +67,15 @@ public class PkgThread extends Thread
 					run = false;
 				}
 				
-                //Store it to Fedex DB
-				Connection con = FedexDB.getConn();
 				try 
                 {
+	                //Store it to Fedex DB
+					Connection con = FedexDB.getConn();
 					FedexDB.updateCurrLocation(con, p);
+					tr.updateResult(p);
+
 					System.out.println("Location = " + p.getCurrLocation() + ", " + "TrackingNumber = " + p.trackingNo);
+					
 					TimeUnit.SECONDS.sleep(5);
 				} 
                 catch (InterruptedException | SQLException e) 
