@@ -28,6 +28,11 @@ public class Package {
         this.trackingNo = trNum;
 	}
 
+    Package()
+    {
+		super();
+	}
+
     // Setter & Getter Methods for each Package detail
     public void setWeight(String w)
     {

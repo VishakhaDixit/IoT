@@ -1,7 +1,7 @@
 import java.sql.*;
 
 public class FedexDB {
-    public static Connection getConn() 
+    public static Connection getConn() throws SQLException
     {
         try 
         {
