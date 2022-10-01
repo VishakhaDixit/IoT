@@ -8,6 +8,8 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+
 import java.awt.event.ActionListener;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -86,6 +88,7 @@ public class TrackPackage extends JFrame {
 						p.setService(rs.getString("Service"));
 						p.setSpecialHandlingSrvc(rs.getString("SpecialHandling"));
 						p.setCurrLocation(rs.getString("CurrentLocation"));
+						p.setDimensions(rs.getString("Dimension"));
 						
 						PkgThread p_thread = new PkgThread(p);
 						
@@ -131,5 +134,8 @@ public class TrackPackage extends JFrame {
 		tfTrackingNum.setColumns(10);
 		tfTrackingNum.setBounds(224, 109, 184, 24);
 		contentPane.add(tfTrackingNum);
+		
+		ImageIcon img = new ImageIcon("Fedex.png");
+		setIconImage(img.getImage());
 	}
 }

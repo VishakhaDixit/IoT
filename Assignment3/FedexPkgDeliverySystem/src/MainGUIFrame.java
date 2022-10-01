@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -64,6 +65,9 @@ public class MainGUIFrame extends JFrame {
 		btnTrackYourOrder.setFont(new Font("Gadugi", Font.BOLD, 16));
 		btnTrackYourOrder.setBounds(240, 101, 173, 70);
 		contentPane.add(btnTrackYourOrder);
+
+		ImageIcon img = new ImageIcon("Fedex.png");
+		setIconImage(img.getImage());
 	}
 
 }

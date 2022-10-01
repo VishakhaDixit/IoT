@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.util.Random;
@@ -185,6 +187,7 @@ public class PlaceMyOrder extends JFrame {
 				p.setSpecialHandlingSrvc(tfSpecialHandling.getText().toString());
 				p.setSrc(cbSrc.getSelectedItem().toString());
 				p.setDest(cbDest.getSelectedItem().toString());
+				p.setDimensions(tfDim.getText().toString());
 				
 				try 
 				{
@@ -204,5 +207,8 @@ public class PlaceMyOrder extends JFrame {
 		btnNewButton.setFont(new Font("Gadugi", Font.BOLD, 16));
 		btnNewButton.setBounds(200, 426, 89, 33);
 		contentPane.add(btnNewButton);
+		
+		ImageIcon img = new ImageIcon("Fedex.png");
+		setIconImage(img.getImage());
 	}
 }
