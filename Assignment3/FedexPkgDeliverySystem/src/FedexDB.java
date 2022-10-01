@@ -35,8 +35,8 @@ public class FedexDB {
 
     public static void addPckgDet(Connection conn, Package p) throws SQLException
     {
-        String sql = "INSERT INTO `fedex`.`package_details` (`Weight`, `Source`, `Destination`, `SignService`, `Packaging`, `TotalPieces`, `Service`, `TrackingNumber`, `SpecialHandling`)" + 
-        "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";        
+        String sql = "INSERT INTO `fedex`.`package_details` (`Weight`, `Source`, `Destination`, `SignService`, `Packaging`, `TotalPieces`, `Service`, `TrackingNumber`, `SpecialHandling`, `Dimension`)" + 
+        "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";        
         PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, p.getWeight());
 		stmt.setString(2, p.getSrc());
@@ -47,6 +47,7 @@ public class FedexDB {
 		stmt.setString(7, p.getService());
 		stmt.setString(8, p.trackingNo);
 		stmt.setString(9, p.getSpecialHandlingSrvc());
+        stmt.setString(10, p.getDimensions());
 		stmt.executeUpdate();
     }
 
