@@ -39,23 +39,32 @@ public class PkgThread extends Thread
 			
 			int src = 0, dest = 0;
             DijkstrasAlgorithm algo = new DijkstrasAlgorithm();
-			
-            for(int i = 0; i < locationArr.length; i++) 
-            {
-				location = locationArr[i];
-				if(location.equals(p.getSrc())) 
-                {
-					src = i; 
-					tr.updateSrc(location);
+			try
+			{
+				for(int i = 0; i < locationArr.length; i++) 
+				{
+					location = locationArr[i];
+					if(location.equals(p.getSrc())) 
+					{
+						src = i; 
+						TimeUnit.SECONDS.sleep(1);
+						tr.updateSrc(location);
+					}
+					if(location.equals(p.getDest())) 
+					{
+						dest = i;
+						tr.updateDest(location);
+					}
 				}
-				if(location.equals(p.getDest())) 
-                {
-					dest = i;
-					tr.updateDest(location);
-				}
+
+				path = algo.getShortestPath(src, dest);
+				TimeUnit.SECONDS.sleep(1);
+				tr.updateShippingFacts(p);
 			}
-			path = algo.getShortestPath(src, dest);
-			tr.updateShippingFacts(p);
+			catch(InterruptedException e)
+			{
+				e.printStackTrace();
+			}
 			
 			for (int i = 0;i < path.size(); i++) 
             { 
