@@ -1,6 +1,7 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+- Compile as: javac -d .\bin\ .\src\MainGUIFrame.java .\src\PlaceMyOrder.java .\src\TrackPackage.java .\src\TrackResult.java .\src\PkgThread.java .\src\Package.java .\src\DijkstrasAlgorithm.java .\src\FedexDB.java
+-  c:; cd 'c:\Users\visha\OneDrive\Documents\UNCC\Sem3\IoT\IoTAssignments\Assignment3\FedexPkgDeliverySystem'; & 'C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe' '-XX:+ShowCodeDetailsInExceptionMessages' '@C:\Users\visha\AppData\Local\Temp\cp_ag7xrvjmhp8utewpasqejp7eb.argfile' 'MainGUIFrame' 
 
 ## Folder Structure
 
